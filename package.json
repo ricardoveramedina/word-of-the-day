@@ -1,0 +1,27 @@
+{
+  "name": "word-of-the-day",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kojinanjo/word-of-the-day.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kojinanjo/word-of-the-day/issues"
+  },
+  "homepage": "https://github.com/kojinanjo/word-of-the-day#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.1",
+    "cheerio": "^1.0.0-rc.3"
+  }
+}
