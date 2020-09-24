@@ -1,12 +1,11 @@
-# word-of-the-day 
+# word-of-the-day
 
 Word of the day show a random word from jisho.com and show it in a easy way to understand and remember. Great for learning japanese
 
-- Show a random word from jisho.org 
-- You can see the kanji, furigana, meaning, frases and JLPT level.
+-   Show a random word from jisho.org
+-   You can see the kanji, furigana, meaning and JLPT level.
 
-
-- nodejs
-- axios
-- cheerio
-- react
+-   nodejs
+-   axios
+-   cheerio
+-   react
