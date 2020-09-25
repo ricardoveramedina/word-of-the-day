@@ -8,4 +8,5 @@ Word of the day show a random word from jisho.com and show it in a easy way to u
 -   nodejs
 -   axios
 -   cheerio
+-   Jest
 -   react
