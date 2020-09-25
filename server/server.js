@@ -6,7 +6,7 @@ const helper = require('./helper');
 
 const app = express();
 
-//const totalPages = 1052; TODO: double check total pages in JISHO.
+//TODO: double check total pages in JISHO.
 const TOTAL_PAGES = 1052;
 const url = 'https://jisho.org/search/%23common%20%23words?page=';
 //for search a word https://jisho.org/search/%23common%20%23words%20noted%20family
