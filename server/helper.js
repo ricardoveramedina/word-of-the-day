@@ -1,5 +1,5 @@
-function randomNumber(totalNumbers) {
+exports.randomNumber = (totalNumbers) => {
     return Math.floor(Math.random() * totalNumbers);
-}
+};
 
-module.exports = { randomNumber };
+//module.exports = { randomNumber };

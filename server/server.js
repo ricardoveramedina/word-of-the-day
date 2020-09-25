@@ -1,14 +1,15 @@
 'use strick';
 const express = require('express');
 const scraper = require('./scraper');
-const httpClient = require('./httpClient');
+const httpClient = require('./http');
 const helper = require('./helper');
 
 const app = express();
 
 //const totalPages = 1052; TODO: double check total pages in JISHO.
-const TOTAL_PAGES = 1054;
+const TOTAL_PAGES = 1052;
 const url = 'https://jisho.org/search/%23common%20%23words?page=';
+//for search a word https://jisho.org/search/%23common%20%23words%20noted%20family
 
 async function fetchWord() {
     const numberPage = helper.randomNumber(TOTAL_PAGES);
@@ -17,17 +18,18 @@ async function fetchWord() {
         randomPage
     );
     randomPage = await httpClient.fetchData(randomUrl);
-    const wordData = await scraper.functionsRequest.clearRaw(randomPage);
 
-    return wordData;
+    return (wordData = await scraper.functionsRequest.clearRaw(randomPage));
 }
 
 app.get('/randomWord', (req, res) => {
     fetchWord().then((data) => res.send(data));
 });
 
-app.get('/status/:parameter', (req, res) => {
-    let param = req.params.parameter;
+//TODO: Create function fetch searchWord
+//Search word get the first result
+app.get('/search/:word', (req, res) => {
+    let param = req.params.word;
     res.send('The status is:' + param);
 });
 
