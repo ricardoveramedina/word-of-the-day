@@ -1,10 +1,10 @@
 const { fetchWord } = require('./fetcher');
 
-const TOTAL_PAGES = 1052;
 const url = 'https://jisho.org/search/%23common%20%23words?page=';
+const totalPages = 1052;
 
 test('should return a word', async () => {
-    const wordData = fetchWord(TOTAL_PAGES, url);
+    const wordData = fetchWord(url, totalPages);
 
     expect(await wordData).toHaveProperty('furigana');
     expect(await wordData).toHaveProperty('kanji');

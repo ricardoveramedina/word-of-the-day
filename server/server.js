@@ -1,17 +1,24 @@
 'use strick';
+const config = require('config');
 const fetcher = require('./fetcher');
 const express = require('express');
 const app = express();
 
-const TOTAL_PAGES = 1052;
-const url = 'https://jisho.org/search/%23common%20%23words?page=';
-//for search a word https://jisho.org/search/%23common%20%23words%20noted%20family
+const appConfig = {};
+const scrapperConfig = {};
+
+if (config.has('appConfig')) {
+    appConfig.port = config.appConfig.port;
+    scrapperConfig.url = config.scraperConfig.url;
+    scrapperConfig.totalPages = config.scraperConfig.totalPages;
+} else {
+    throw new Error('no config file');
+}
 
 app.get('/randomWord', (req, res) => {
-    fetcher.fetchWord(TOTAL_PAGES, url).then((data) => res.send(data));
+    fetcher
+        .fetchWord(scrapperConfig.url, scrapperConfig.totalPages)
+        .then((data) => res.send(data));
 });
 
-//TODO: in test use shallow render in front
-//TODO: add when deploy NODE_ENV=development node server.js
-
-app.listen(3000, () => {});
+app.listen(appConfig.port, () => {});
