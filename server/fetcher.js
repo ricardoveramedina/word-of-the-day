@@ -7,8 +7,10 @@ async function fetchWord(url, totalPages) {
     let randomPage = await httpClient.fetchData(url + numberPage);
     const randomUrl = await scraper.getRandomWordUrl(randomPage);
     randomPage = await httpClient.fetchData(randomUrl);
+    wordData = await scraper.clearRaw(randomPage);
+    wordData.link = randomUrl;
 
-    return (wordData = await scraper.clearRaw(randomPage));
+    return wordData;
 }
 
 module.exports = { fetchWord };

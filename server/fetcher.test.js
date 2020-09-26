@@ -11,4 +11,5 @@ test('should return a word', async () => {
     expect(await wordData).toHaveProperty('jlptLevel');
     expect(await wordData).toHaveProperty('typeOfWord');
     expect(await wordData).toHaveProperty('meanings');
+    expect(await wordData).toHaveProperty('link');
 });

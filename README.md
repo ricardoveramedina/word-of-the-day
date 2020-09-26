@@ -10,3 +10,5 @@ Word of the day show a random word from jisho.com and show it in a easy way to u
 -   cheerio
 -   Jest
 -   react
+
+//TODO: in test use shallow render in front
