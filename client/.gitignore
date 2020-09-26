@@ -2,20 +2,11 @@
 
 # dependencies
 /node_modules
-/client/node_modules
-/server/node_modules
-
 /.pnp
 .pnp.js
 
-#vscode
-/client/.vscode
-/server/.vscode
-
 # testing
 /coverage
-/client/coverage
-/server/coverage
 
 # production
 /build
