@@ -27,12 +27,11 @@ const clearRaw = (data) => {
         .first();
 
     const furigana = conceptLightWrapper.find('span.furigana').text().trim();
-    const kanji = conceptLightWrapper.find('span.text').text().trim();
+    const word = conceptLightWrapper.find('span.text').text().trim();
     const typeOfWord = conceptLightMeanings.find('.meaning-tags').html();
-    const jlptLevel = conceptLightWrapper
-        .find('span.concept_light-tag')
-        .next()
-        .html();
+    const matchJlpt = conceptLightWrapper.html().match(/jlpt n[1-5]/gi);
+    const jlptLevel = matchJlpt ? matchJlpt[0] : null;
+
     let meanings = [];
     conceptLightMeanings
         .find('.meaning-definition')
@@ -41,7 +40,7 @@ const clearRaw = (data) => {
             meanings[i] = $(this).text();
         });
 
-    return { furigana, kanji, jlptLevel, typeOfWord, meanings };
+    return { furigana, word, jlptLevel, typeOfWord, meanings };
 };
 
 module.exports = { getRandomWordUrl, clearRaw };

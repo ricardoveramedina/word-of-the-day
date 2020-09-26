@@ -15,8 +15,15 @@ test('should get a word furigana', () => {
     const wordData = clearRaw(exampleHtml);
 
     expect(wordData).toHaveProperty('furigana');
-    expect(wordData).toHaveProperty('kanji');
+    expect(wordData).toHaveProperty('word');
     expect(wordData).toHaveProperty('jlptLevel');
     expect(wordData).toHaveProperty('typeOfWord');
     expect(wordData).toHaveProperty('meanings');
+});
+
+test('should return jlpt level', () => {
+    const wordData = clearRaw(exampleHtml);
+    expect(wordData).toHaveProperty('jlptLevel');
+    console.log(wordData);
+    wordData.jlptLevel && expect(wordData.jlptLevel).toMatch(/jlpt/gi);
 });

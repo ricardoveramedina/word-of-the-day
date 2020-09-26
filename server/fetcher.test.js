@@ -7,7 +7,7 @@ test('should return a word', async () => {
     const wordData = fetchWord(url, totalPages);
 
     expect(await wordData).toHaveProperty('furigana');
-    expect(await wordData).toHaveProperty('kanji');
+    expect(await wordData).toHaveProperty('word');
     expect(await wordData).toHaveProperty('jlptLevel');
     expect(await wordData).toHaveProperty('typeOfWord');
     expect(await wordData).toHaveProperty('meanings');
