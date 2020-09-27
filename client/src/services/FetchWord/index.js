@@ -12,13 +12,12 @@ const FetchWord = () => {
 
   useEffect(() => {
     fetchData(url).then((data) => {
-      console.log('print data:' + data);
       setWordData(data);
       setLoading(false);
     });
   }, []);
 
-  return !isLoading && JSON.stringify(wordData);
+  return !isLoading && wordData;
 };
 
 export default FetchWord;
