@@ -1,9 +1,9 @@
 {
-    "appConfig": {
-        "port": 3000
-    },
-    "scraperConfig": {
-        "url": "https://jisho.org/search/%23common%20%23words?page=",
-        "totalPages": 1052
-    }
+  "appConfig": {
+    "port": 3300
+  },
+  "scraperConfig": {
+    "url": "https://jisho.org/search/%23common%20%23words?page=",
+    "totalPages": 1052
+  }
 }
