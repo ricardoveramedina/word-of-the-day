@@ -39,6 +39,7 @@ module.exports = {
       .each(function (i, e) {
         meanings[i] = $(this).text();
       });
+    [...new Set(meanings)]; //Avoid duplicates using set
 
     return { furigana, word, jlptLevel, typeOfWord, meanings };
   },
