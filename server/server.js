@@ -1,10 +1,11 @@
 'use strick';
 const config = require('config');
-const fetcher = require('./fetcher');
 const express = require('express');
+const compression = require('compression');
 const cors = require('cors');
+const routes = require('./routes');
 const app = express();
-app.use(cors());
+app.use(cors(), compression());
 
 const appConfig = {};
 const scrapperConfig = {};
@@ -17,10 +18,16 @@ if (config.has('appConfig')) {
   throw new Error('no config file');
 }
 
-app.get('/randomWord', (req, res) => {
-  fetcher
-    .fetchWord(scrapperConfig.url, scrapperConfig.totalPages)
-    .then((data) => res.send(data));
-});
+routes(app, scrapperConfig);
 
-app.listen(appConfig.port, () => {});
+app.listen(appConfig.port, (err) => {
+  if (err) {
+    console.error(err);
+    process.exit(1);
+  }
+  console.info(`
+    ################################################
+        Server listening on port: ${appConfig.port}
+    ################################################
+  `);
+});
