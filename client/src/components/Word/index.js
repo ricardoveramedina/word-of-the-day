@@ -26,8 +26,8 @@ const useStyles = makeStyles({
 
 export default function Word(props) {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
   const { words } = props;
+  const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <Fragment>
@@ -47,8 +47,16 @@ export default function Word(props) {
             {words.typeOfWord} {words.jlptLevel && ' - ' + words.jlptLevel}
           </Typography>
           <Typography variant="body2" component="p">
-            {words.meanings.map((meaning) => meaning)}
-            {bull}
+            {words.meanings.map((meaning, index) => {
+              return words.meanings.length > index + 1 ? (
+                <Fragment>
+                  {meaning}
+                  {bull}
+                </Fragment>
+              ) : (
+                meaning
+              );
+            })}
           </Typography>
         </CardContent>
         <CardActions>

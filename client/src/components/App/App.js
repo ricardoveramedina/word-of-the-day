@@ -1,9 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Word from './components/Word';
-import fetchWord from './services/FetchWord';
-import { BookLoader } from './components/BookLoader';
+import Word from '../Word';
+import fetchWord from '../../services/FetchWord';
+import { BookLoader } from '../BookLoader';
 
 //center element
 const divBookStyle = {
@@ -13,7 +12,23 @@ const divBookStyle = {
 };
 
 function App() {
-  const wordsData = fetchWord();
+  //const wordsData = fetchWord();
+  const wordsData = {
+    furigana: 'いちなん',
+    word: '一男',
+    jlptLevel: null,
+    typeOfWord: 'Noun',
+    meanings: [
+      'boy; eldest son',
+      'boy; eldest son',
+      'boy; eldest son',
+      'boy; eldest son',
+      'boy; eldest son',
+      'boy; eldest son',
+      'boy; eldest son',
+    ],
+    link: 'https://jisho.org/word/%E4%B8%80%E7%94%B7',
+  };
   //console.log(wordsData);
 
   //{!wordsData ? <BookLoader /> : <Word words={wordsData} />}
